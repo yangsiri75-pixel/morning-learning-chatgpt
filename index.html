@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning Learning Dashboard · ChatGPT</title>
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#e6eaf0;--blue:#0f4c81;--blue2:#1d8fd1;--good:#15803d;--warn:#b45309;--bad:#b91c1c;--violet:#6d28d9}
+*{box-sizing:border-box}body{margin:0;background:#f5f7fb;color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.wrap{max-width:1180px;margin:auto;padding:28px 18px 60px}.hero{background:linear-gradient(135deg,#0f4c81,#1d8fd1);color:#fff;border-radius:26px;padding:30px 32px;box-shadow:0 16px 40px #0f4c8124}.hero h1{margin:0;font-size:34px}.hero p{margin:8px 0 0;opacity:.92}.date{display:inline-block;margin-top:14px;background:#ffffff22;padding:7px 11px;border-radius:999px;font-size:13px}.hero .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.hero .chips span{font-size:12px;padding:6px 9px;border:1px solid #ffffff44;border-radius:999px;background:#ffffff10}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 30px #0f172a0d}.card.full{grid-column:1/-1}.content{padding:22px}.visual{width:100%;height:230px;object-fit:cover;display:block;background:#dbeafe}.split{display:grid;grid-template-columns:370px 1fr;min-height:280px}.split .visual{height:100%;min-height:280px}.label{display:inline-block;font-weight:800;font-size:12px;padding:6px 10px;border-radius:999px;margin-bottom:10px}.bible{background:#e0f2fe;color:#075985}.jp{background:#fee2e2;color:#b91c1c}.en{background:#dcfce7;color:#166534}.idiom{background:#fef3c7;color:#92400e}.term{background:#ede9fe;color:#6d28d9}.market{background:#dbeafe;color:#1d4ed8}.korea{background:#ecfeff;color:#0f766e}.hold{background:#fce7f3;color:#9d174d}h2{margin:0 0 14px;font-size:24px}.section-title{grid-column:1/-1;margin:14px 0 -4px;padding:22px 2px 0}.section-title h2{font-size:28px;margin:0}.section-title p{margin:6px 0 0;color:#64748b}.sentence{padding:14px;border-radius:14px;background:#f8fafc;margin:10px 0}.ko{font-weight:650;margin-top:8px}.vocab{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}.vocab div{padding:11px 12px;background:#f8fafc;border-radius:12px}.dialog p{margin:8px 0;padding:10px 12px;background:#f0fdf4;border-radius:10px}.story{line-height:1.78;color:#334155}.newsbox{background:#f5f3ff;border-left:4px solid #7c3aed;padding:15px 17px;border-radius:10px;line-height:1.68}.history{margin-top:24px;background:#fff;border-radius:18px;padding:18px;border:1px solid var(--line)}.history summary{font-weight:800;cursor:pointer}.src{font-size:12px;color:#64748b;margin-top:12px}.jptext{font-size:19px;line-height:2.05;font-weight:750;letter-spacing:.01em}.jptext ruby{ruby-position:over}.jptext rt{font-size:.52em;font-weight:650;color:#b45309;letter-spacing:0}.vocab ruby{ruby-position:over;font-size:17px}.vocab rt{font-size:9px;color:#b45309}.photo-caption{font-size:12px;color:#64748b;margin-top:8px}.bible-quote{font-size:22px;font-weight:800;line-height:1.65}.verse-note{margin-top:12px;color:#475569;line-height:1.65}.kicker{font-size:14px;font-weight:800;color:#0f766e;margin-bottom:8px}.term-visual{height:220px;background:linear-gradient(135deg,#111827,#312e81);display:flex;align-items:center;justify-content:center;padding:26px;color:#fff;text-align:center}.chiprow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.chip{background:#ffffff18;border:1px solid #ffffff36;border-radius:999px;padding:7px 10px;font-size:12px}.term-visual strong{font-size:34px;display:block;margin-bottom:12px}.tipbox{margin-top:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:12px 14px;color:#9a3412;font-size:14px;line-height:1.6}.market-hero{grid-column:1/-1;background:linear-gradient(135deg,#111827,#1e3a8a);color:#fff;border-radius:24px;padding:24px;box-shadow:0 14px 34px #0f172a14}.market-hero h2{font-size:28px}.market-hero p{margin:5px 0;color:#dbeafe}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.stat{background:#ffffff12;border:1px solid #ffffff24;border-radius:16px;padding:16px}.stat .name{font-size:12px;color:#bfdbfe;font-weight:800}.stat .value{font-size:25px;font-weight:850;margin-top:4px}.stat .delta{font-size:13px;margin-top:4px}.down{color:#fecaca}.up{color:#bbf7d0}.market-card h3,.holding-card h3{margin:0 0 8px;font-size:18px}.market-card p,.holding-card p{margin:7px 0;color:#475569;line-height:1.68}.bullets{margin:10px 0 0;padding-left:18px;color:#475569}.bullets li{margin:7px 0}.holdings{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.holding-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 8px 24px #0f172a08}.holding-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.badge{font-size:11px;font-weight:850;border-radius:999px;padding:5px 8px;white-space:nowrap}.badge.good{background:#dcfce7;color:#166534}.badge.watch{background:#fef3c7;color:#92400e}.badge.critical{background:#fee2e2;color:#b91c1c}.price{font-size:21px;font-weight:850;margin:7px 0}.small{font-size:12px;color:#64748b}.notice{grid-column:1/-1;background:#fff;border:1px solid #fed7aa;border-radius:16px;padding:15px 17px;color:#9a3412;line-height:1.65}.footer{margin-top:28px;color:#64748b;font-size:12px;line-height:1.7;text-align:center}.visual.bible-img{background:url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=900&q=80') center/cover}.visual.jp-img{background:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=900&q=80') center/cover}.visual.en-img{background:url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=900&q=80') center/cover}.visual.idiom-img{background:url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=900&q=80') center/cover}
+@media(max-width:900px){.holdings{grid-template-columns:repeat(2,1fr)}}@media(max-width:850px){.wrap{padding:16px 10px 40px}.grid{grid-template-columns:1fr;gap:16px}.card.full{grid-column:auto}.split{grid-template-columns:1fr}.split .visual{height:210px;min-height:0}.hero{padding:24px 20px;border-radius:20px}.hero h1{font-size:27px}.visual{height:210px}.content{padding:18px}.jptext{font-size:18px;line-height:2.25}.vocab{grid-template-columns:1fr 1fr}.bible-quote{font-size:20px}.stats{grid-template-columns:1fr}.holdings{grid-template-columns:1fr}.section-title,.market-hero,.holdings,.notice{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <h1>☀️ 오늘의 Morning Learning Dashboard</h1>
+  <p>오늘의 말씀 · 일본어 · 생활영어 · 고사성어 · 시사용어 + 📈 주식 모닝 브리핑</p>
+  <span class="date">ChatGPT 전용 개선본 · 기존 학습형 디자인 유지</span>
+  <div class="chips"><span>실사형 비주얼</span><span>후리가나</span><span>영어 Q&A</span><span>풍부한 설명</span><span>보유종목 6개</span></div>
+</header>
+
+<main class="grid">
+  <div class="section-title"><h2>📚 오늘의 5가지 학습</h2><p>기존 대시보드의 정보량과 읽는 맛을 그대로 살렸습니다.</p></div>
+
+  <section class="card full split">
+    <div class="visual bible-img" role="img" aria-label="아침 햇살이 비치는 책상 위 성경책"></div>
+    <div class="content">
+      <span class="label bible">1 · 오늘의 말씀</span>
+      <h2>📖 시편 23편 1절</h2>
+      <div class="bible-quote">“여호와는 나의 목자시니 내게 부족함이 없으리로다.”</div>
+      <div class="verse-note">오늘은 무엇을 더 채워야 하는지보다 이미 받은 은혜와 오늘 걸어갈 한 걸음에 집중해 봅니다. 조급함을 내려놓고, 필요한 때 필요한 것을 채우시는 하나님을 신뢰하는 마음으로 하루를 시작해 보세요.</div>
+      <div class="photo-caption">아침 묵상 · 차분하게 하루를 여는 실사형 비주얼</div>
+    </div>
+  </section>
+
+  <section class="card split">
+    <div class="visual jp-img" role="img" aria-label="일본의 거리 풍경"></div>
+    <div class="content">
+      <span class="label jp">2 · JAPANESE · JPT 860</span>
+      <h2>시사 일본어</h2>
+      <div class="sentence"><div class="jptext"><ruby>米国<rt>べいこく</rt></ruby>は、AIと<ruby>半導体<rt>はんどうたい</rt></ruby>の<ruby>供給網<rt>きょうきゅうもう</rt></ruby>をめぐる<ruby>国際協力<rt>こくさいきょうりょく</rt></ruby>で、<ruby>参加国<rt>さんかこく</rt></ruby>により<ruby>明確<rt>めいかく</rt></ruby>な<ruby>立場<rt>たちば</rt></ruby>を<ruby>求<rt>もと</rt></ruby>めようとしている。</div><div class="ko">미국은 AI와 반도체 공급망을 둘러싼 국제 협력에서 참가국에 보다 명확한 입장을 요구하려 하고 있다.</div></div>
+      <div class="sentence"><div class="jptext"><ruby>各国<rt>かっこく</rt></ruby>にとっては、<ruby>安全保障<rt>あんぜんほしょう</rt></ruby>と<ruby>経済的利益<rt>けいざいてきりえき</rt></ruby>の<ruby>両方<rt>りょうほう</rt></ruby>を<ruby>考慮<rt>こうりょ</rt></ruby>した<ruby>難<rt>むずか</rt></ruby>しい<ruby>判断<rt>はんだん</rt></ruby>になりそうだ。</div><div class="ko">각국으로서는 안보와 경제적 이익 양쪽을 고려해야 하는 어려운 판단이 될 전망이다.</div></div>
+      <h3>핵심 어휘</h3><div class="vocab"><div><ruby>供給網<rt>きょうきゅうもう</rt></ruby><br>공급망</div><div><ruby>国際協力<rt>こくさいきょうりょく</rt></ruby><br>국제 협력</div><div><ruby>立場<rt>たちば</rt></ruby><br>입장</div><div><ruby>安全保障<rt>あんぜんほしょう</rt></ruby><br>안보</div><div><ruby>考慮する<rt>こうりょする</rt></ruby><br>고려하다</div></div>
+      <div class="tipbox">한자 바로 위에 후리가나가 표시됩니다. 모바일에서도 읽기 쉽게 유지했습니다.</div>
+    </div>
+  </section>
+
+  <section class="card split">
+    <div class="visual en-img" role="img" aria-label="카페에서 자연스럽게 대화하는 사람들"></div>
+    <div class="content">
+      <span class="label en">3 · ENGLISH · BEGINNER</span>
+      <h2>생활회화 · 질문과 답변</h2>
+      <div class="kicker">오늘 장면 · 카페에서 주문하고 대화하기</div>
+      <div class="dialog">
+        <p><b>A: How was your day?</b><br>오늘 하루 어땠어?<br><b>B: Pretty good. I was a little busy, though.</b><br>꽤 괜찮았어. 조금 바쁘긴 했지만.</p>
+        <p><b>A: Can I pay by card?</b><br>카드로 결제할 수 있나요?<br><b>B: Sure. You can tap your card right here.</b><br>물론이죠. 여기에서 카드를 태그해 주세요.</p>
+        <p><b>A: How long does it take to get there?</b><br>거기까지 얼마나 걸리나요?<br><b>B: About ten minutes on foot.</b><br>걸어서 약 10분 정도 걸려요.</p>
+        <p><b>A: I'd like this one, please.</b><br>이걸로 주세요.<br><b>B: Great choice. Would you like anything to drink?</b><br>좋은 선택이에요. 음료도 필요하세요?</p>
+      </div>
+      <div class="tipbox">문장을 단독 암기하지 않고 질문→답변 흐름으로 익히는 구조입니다.</div>
+    </div>
+  </section>
+
+  <section class="card full split">
+    <div class="visual idiom-img" role="img" aria-label="새옹지마를 상징하는 말"></div>
+    <div class="content">
+      <span class="label idiom">4 · 고사성어</span>
+      <h2>塞翁之馬 · 새옹지마</h2>
+      <div class="kicker" style="color:#92400e">말을 잃음 → 더 좋은 말이 돌아옴 → 아들이 다침 → 전쟁 징집을 피함</div>
+      <div class="story">중국 전한 시대의 사상서인 《회남자》에는 국경 근처에 살던 한 노인의 이야기가 전해진다. 어느 날 노인이 기르던 말 한 마리가 국경 밖으로 달아나 버렸다. 이웃들은 큰 재산을 잃었다며 위로했지만, 노인은 “이 일이 복이 될지 누가 알겠는가”라고 담담하게 말했다. 얼마 뒤 달아났던 말이 훌륭한 오랑캐 말 한 필을 데리고 돌아왔다. 사람들은 이번에는 큰 행운이라며 축하했지만 노인은 다시 “이것이 화가 될지 누가 알겠는가”라고 했다. 실제로 노인의 아들이 새 말을 타다가 떨어져 다리가 부러졌다. 그 뒤 전쟁이 일어나 마을의 젊은 남자들이 대부분 군대에 끌려갔지만, 노인의 아들은 다리가 불편해 징집되지 않아 살아남을 수 있었다. 눈앞의 손해와 이익만으로 결과를 단정하지 말고 긴 흐름 속에서 판단하라는 교훈이다.</div>
+    </div>
+  </section>
+
+  <section class="card full">
+    <div class="term-visual"><div><strong>PAX SILICA</strong><div class="chiprow"><span class="chip">AI</span><span class="chip">반도체</span><span class="chip">핵심광물</span><span class="chip">공급망</span><span class="chip">안보</span></div></div></div>
+    <div class="content"><span class="label term">5 · 오늘의 시사 용어</span><h2>Pax Silica · 팍스 실리카</h2><div class="newsbox"><b>한 줄 정의:</b> 미국이 AI·반도체·핵심광물 공급망을 우방 중심으로 묶기 위해 추진하는 국제 협력 구상.<br><br><b>왜 중요한가:</b> AI 시대의 핵심 자원과 반도체 생산망을 어느 국가와 공유하고 협력할지를 둘러싼 경제·안보 이슈가 동시에 움직이고 있기 때문입니다. 한국처럼 반도체 비중이 큰 국가에는 산업정책과 외교전략을 함께 봐야 하는 용어입니다.</div><div class="src">학습용 설명 · 실운영 시 매일 최신 뉴스에 맞춰 자동 갱신</div></div>
+  </section>
+
+  <div class="section-title"><h2>📈 오늘의 주식 모닝 브리핑</h2><p>기존 학습 콘텐츠는 줄이지 않고, 아래에 주식 분석 영역을 새로 추가했습니다.</p></div>
+
+  <section class="market-hero">
+    <span class="label market">US MARKET · SAMPLE LAYOUT</span>
+    <h2>미국 증시 → 한국 증시 연결해서 보기</h2>
+    <p>아래 숫자는 디자인 확인용 샘플입니다. 실제 자동화에서는 매일 가장 최근 마감값으로 교체됩니다.</p>
+    <div class="stats"><div class="stat"><div class="name">DOW JONES</div><div class="value">53,732.41</div><div class="delta down">▼ 0.20%</div></div><div class="stat"><div class="name">S&amp;P 500</div><div class="value">7,785.76</div><div class="delta down">▼ 0.17%</div></div><div class="stat"><div class="name">NASDAQ</div><div class="value">26,729.16</div><div class="delta down">▼ 0.28%</div></div></div>
+  </section>
+
+  <section class="card market-card"><div class="content"><span class="label market">미국 증시 핵심</span><h3>AI 모멘텀은 유지되지만 기대치가 높아진 장세</h3><p>AI와 반도체가 시장의 중심이라는 흐름은 유지되더라도, 높은 밸류에이션 구간에서는 단순한 호재보다 “기대치를 얼마나 넘어섰는가”가 주가 반응을 좌우할 수 있습니다.</p><ul class="bullets"><li>빅테크·AI 투자 확대 여부</li><li>반도체 장비·메모리·데이터센터 수요</li><li>미 국채금리와 달러 방향</li><li>장중 급등락 시 단기 추격보다 재료의 지속성 확인</li></ul></div></section>
+
+  <section class="card market-card"><div class="content"><span class="label korea">한국 증시 대응전략</span><h3>미국 기술주 흐름을 국내 AI·로봇·반도체에 연결</h3><p>한국장은 미국 기술주와 반도체 심리의 영향을 크게 받을 수 있으므로, 개장 전 미국 시장의 방향과 함께 보유종목의 개별 공시·수급·급등락 여부를 따로 확인하는 방식이 적합합니다.</p><div class="tipbox">이 영역은 매수·매도 확정 지시가 아니라, 그날 확인해야 할 정보의 우선순위를 정리하는 용도입니다.</div></div></section>
+
+  <div class="section-title"><h2>🔎 보유종목 6개 집중점검</h2><p>단순 뉴스 존재 여부가 아니라 실제 투자 판단에 영향을 줄 수 있는 재료만 중요 이슈로 구분합니다.</p></div>
+  <div class="holdings">
+    <article class="holding-card"><div class="holding-top"><div><h3>에브리봇</h3><div class="small">270660 · 로봇</div></div><span class="badge good">정상 · 샘플</span></div><div class="price">최신 시세 자동반영</div><p>로봇·AI 정책, 신규 제품/계약, 급등락 및 수급 변화 중심으로 확인합니다.</p></article>
+    <article class="holding-card"><div class="holding-top"><div><h3>대한제당</h3><div class="small">001790 · 식품/원자재</div></div><span class="badge watch">주의 · 샘플</span></div><div class="price">최신 시세 자동반영</div><p>원당 가격, 환율, 곡물·원자재 이슈와 실적 민감도를 함께 점검합니다.</p></article>
+    <article class="holding-card"><div class="holding-top"><div><h3>마음AI</h3><div class="small">377480 · AI</div></div><span class="badge critical">확인필요 · 샘플</span></div><div class="price">최신 시세 자동반영</div><p>대형 계약, 정부 AI 정책, 자금조달·실적 관련 공시가 있으면 최우선 경고 대상으로 표시합니다.</p></article>
+    <article class="holding-card"><div class="holding-top"><div><h3>아이씨티케이</h3><div class="small">456010 · 보안/반도체</div></div><span class="badge good">정상 · 샘플</span></div><div class="price">최신 시세 자동반영</div><p>보안칩·양자보안·정책 수혜와 공급계약·고객사 확대 여부를 확인합니다.</p></article>
+    <article class="holding-card"><div class="holding-top"><div><h3>노을</h3><div class="small">376930 · 의료AI</div></div><span class="badge watch">주의 · 샘플</span></div><div class="price">최신 시세 자동반영</div><p>임상·인허가·해외 공급계약·자금조달 등 바이오/의료AI 특유의 이벤트를 우선 확인합니다.</p></article>
+    <article class="holding-card"><div class="holding-top"><div><h3>콘텐트리중앙</h3><div class="small">036420 · 콘텐츠</div></div><span class="badge good">정상 · 샘플</span></div><div class="price">최신 시세 자동반영</div><p>흥행 성과, 제작비·실적, OTT 계약 및 콘텐츠 라인업 관련 이슈를 확인합니다.</p></article>
+  </div>
+
+  <div class="notice"><b>⚠ 중요 알림 규칙</b><br>보유종목에 실제 투자판단에 영향을 줄 가능성이 높은 공시·계약·증자·임상·정부정책·시장조치·급등락 등이 확인되면 대시보드 최상단과 카카오톡에서 “마음AI 보고서 꼭 확인 필요”처럼 종목명을 명확히 표시합니다. 단순 기사 존재만으로는 경고하지 않습니다.</div>
+</main>
+
+<details class="history" open><summary>📚 날짜별 누적 보관 구조</summary><p>실운영에서는 오늘 자료가 가장 위에 표시되고, 지난 콘텐츠가 날짜순으로 아래에 계속 누적됩니다. 같은 고정 URL에서 과거 학습자료와 증시 브리핑을 다시 볼 수 있도록 날짜 필터와 검색 기능을 추가할 수 있습니다.</p></details>
+<div class="footer">Morning Learning Dashboard · ChatGPT 전용 개선본<br>현재 페이지의 주식 숫자·상태 배지는 레이아웃 확인용 샘플이며, 자동화 연결 시 최신 데이터로 교체됩니다.</div>
+</div>
+</body>
+</html>
